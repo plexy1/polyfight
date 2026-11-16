@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PolyFight — Polymarket traders, head to head</title>
+  <meta name="description" content="Put two to four Polymarket profiles in the cage. Seven rounds of real trading stats pick a winner, then each trader is scouted as a fighter.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='16' height='32' fill='%23E5383B'/%3E%3Crect x='16' width='16' height='32' fill='%233D7BFF'/%3E%3C/svg%3E">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="PolyFight home">POLY<span>FIGHT</span></a>
+    <button type="button" id="soundBtn" class="ghost small" aria-pressed="true">Sound on</button>
+  </header>
+
+  <main>
+    <!-- Fight card builder -->
+    <section id="setup" class="setup">
+      <p class="eyebrow">Polymarket trader showdown</p>
+      <h1>Settle it<br>in the cage</h1>
+      <p class="lede">Put two to four Polymarket profiles in opposite corners. Seven rounds of real trading stats decide the winner, then every trader gets scouted as a fighter.</p>
+
+      <form id="card" class="card" novalidate>
+        <div id="corners" class="corners" data-n="2"></div>
+        <div class="card-actions">
+          <button type="button" id="addCorner" class="ghost">+ Add a corner</button>
+          <button type="submit" class="cta">Fight</button>
+        </div>
+        <p id="formError" class="form-error" role="alert"></p>
+      </form>
+
+      <div class="booked" id="booked" hidden>
+        <span class="booked-label">Or book a main event</span>
+        <div id="presets" class="presets"></div>
+      </div>
+    </section>
+
+    <!-- Weigh-in (loading) -->
+    <section id="weighin" class="weighin" hidden aria-live="polite">
+      <p class="eyebrow">Weigh-ins</p>
+      <h2>Pulling the tape</h2>
+      <ul id="weighList" class="weigh-list"></ul>
+    </section>
+
+    <!-- The fight -->
+    <section id="arena" class="arena" hidden>
+      <div id="scorebar" class="scorebar"></div>
+      <div id="fighters" class="fighters"></div>
+
+      <h2 class="section-title"><span>Tale of the tape</span></h2>
+      <div id="tape" class="tape"></div>
+
+      <div class="bell" id="bell">
+        <button type="button" id="bellBtn" class="cta">Ring the bell</button>
+        <button type="button" id="skipBtn" class="ghost" hidden>Skip to the decision</button>
+      </div>
+
+      <ol id="rounds" class="rounds"></ol>
+
+      <div id="decision" class="decision" hidden></div>
+
+      <div id="scouting" class="scouting-wrap" hidden>
+        <h2 class="section-title"><span>Scouting report</span></h2>
+        <p class="section-sub">What kind of fighter each trader is, read off the same numbers.</p>
+        <div id="styles" class="styles"></div>
+      </div>
+
+      <div id="after" class="after" hidden>
+        <button type="button" id="rematchBtn" class="cta">New fight</button>
+        <button type="button" id="replayBtn" class="ghost">Replay the rounds</button>
+        <button type="button" id="shareBtn" class="ghost">Copy fight link</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Live data from Polymarket's public API. Win rate and damage ratio use each trader's most recent 500 resolved positions.</p>
+    <p>For entertainment only, not financial advice. Not affiliated with Polymarket or the UFC.</p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+.vercel
+
+# personal files that happen to live in this folder; not part of the site
+*.dmg
+*.csv
+*.xlsx
+.DS_Store
